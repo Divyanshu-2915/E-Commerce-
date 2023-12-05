@@ -3,6 +3,8 @@ import React from 'react';
 import './sample.css';
 import {useState} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Navbar from './navbar';
 
 function NewUser()
 {
@@ -91,7 +93,7 @@ function NewUser()
                     <input type="password" placeholder="Enter Password" value={newpassword} onChange={(e) => setNewPassword(e.target.value)} />
                     <label htmlFor='ConfirmPassword'> Confirm Password </label>
                     <input type="password" placeholder="Confirm Password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                    <button type="submit"> Register </button>
+                    <button type="submit"><Link to='/Navbar' style={{textDecoration: 'none', color:'#7f5539'}}> Register </Link></button>
                     {newdata && <p style={{ color: 'green' }}>User registered successfully!</p>}
                 </form>
                 </div>
@@ -104,7 +106,7 @@ function NewUser()
                     <input type="email" placeholder="Enter Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <label htmlFor='Password'> Enter Password</label>
                     <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <button type="submit"> Login </button>
+                    <button type="submit"><Link to='/navbar' style={{textDecoration: 'none', color:'#7f5539'}}> Login </Link></button>
                     {data && <p style={{ color: 'green' }}>Login Successfully !</p>}
                 </form>
                 </div>

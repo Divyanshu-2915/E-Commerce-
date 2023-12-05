@@ -30,8 +30,8 @@ function Navbar()
           <li> Womens </li>
           <li> Acessories </li>
           <li> Shoes </li>
-          <li> Winter Arrivals </li>
-          <li> 50% OFF </li>
+          <li> <Link to='/About' style={{textDecoration: 'none', color:'#7f5539'}}> About </Link></li>
+          <li> <Link to='/Contact' style={{textDecoration: 'none', color:'#7f5539'}}> Contact </Link></li>
         </ul>
   </nav>
   <div className="banner">
