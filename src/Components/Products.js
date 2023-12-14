@@ -32,16 +32,14 @@ export default function Mens() {
       <h1 id="mens-main">Mens Collection</h1>
       <div class="grid-container">
         {alpha.map((item, index) => (
-          <a key={index} target='_parent' href={`Token.js?itemName=${encodeURIComponent(item.name)}`}>
-            <button>
-              <div class="product">
-                <h3 id='item-name'>{item.name}</h3>
-                <img src={item.image} alt={item.name} />
-                <p>{item.price}</p>
-                <p>{item.description}</p>
-              </div>
-            </button>
-          </a>
+          <button key={index}>
+            <div class="product">
+              <h3 id='item-name'>{item.name}</h3>
+              <img src={item.image} alt={item.name} />
+              <p>{item.price}</p>
+              <p>{item.description}</p>
+            </div>
+          </button>
         ))}
       </div>
     </>
