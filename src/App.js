@@ -1,5 +1,6 @@
+
 import React from "react";
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from "react-router-dom";
 import Navbar from "./Components/navbar";
 import './App.css';
 import User from "./Components/Registration";
@@ -8,26 +9,42 @@ import Mens from "./Components/Products";
 import NewUser from "./Components/sample";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
+import AllItem from "./Components/Categories";
+import Cart from "./Cart";
+import PlaceOrder from "./Components/Orders";
 
-function App() 
-{
-return (
-  <>
-    <Router>
-      <Routes>
-        <Route path="/">
-        <Route index element={<Navbar/>} />
-        <Route path="/Products" element={<Mens/>} />
-        <Route path="/Login" element={<LoginUser/>} />
-        <Route path="/Registration" element={<User/>} />
-        <Route path="/sample" element={<NewUser/>} />
-        <Route path="/About" element={<About/>} />
-        <Route path="/Contact" element={<Contact/>}/>
-        </Route>
-      </Routes>
-    </Router>
+function App() {
+  return (
+    <>
+
+      <Router>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Navbar />} />
+            <Route path="/Products" element={<Mens />} />
+            <Route path="/Login" element={<LoginUser />} />
+            <Route path="/Registration" element={<User />} />
+            <Route path="/sample" element={<NewUser />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/Categories" element={<AllItem />} />
+            <Route path="/Cart" element={<Cart />} />
+            <Route path="/sample" element={<NewUser />} />
+          </Route>
+        </Routes>
+      </Router>
+      {/*
+    <BrowserRouter>
+      <PlaceOrder/>
+    </BrowserRouter>
+    */}
     </>
   )
-  }
+}
 
 export default App;
+
+
+
+//---
+

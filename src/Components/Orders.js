@@ -1,77 +1,44 @@
-function Component() {
-
-    var jsonData1 = {
-  
-      "name": "alan", 
-      "age": 23,
-      "username": "aturing"
-  
-    }
-  
-    var jsonData2 = {
-      
-      "name": "john", 
-      "age": 29,
-      "username": "__john__"
-      
-    }
-  
-    function handleClick() {
-      
-      var formData = new FormData();
-      formData.append('json1', JSON.stringify(jsonData1));
-      formData.append('json2', JSON.stringify(jsonData2));
-  
-      // Send data to the backend via POST
-      fetch('http://-----------:8080/', {
-  
-        method: 'POST', 
-        mode: 'cors', 
-        body: formData // body data type must match "Content-Type" header
-  
-      })
-    }
-  
-    return (
-      <div onClick={handleClick} style={{
-        textAlign: 'center',
-        width: '100px',
-        border: '1px solid gray',
-        borderRadius: '5px'
-      }}>
-        Send data to backend
-      </div>
-    );
-  
-  }
-  
-  export { Component };
-
-
-/*
 import React from "react";
 import useFetch from "react-fetch-hook";
-export default function Mens() {
-const { isLoading, error, data } = useFetch("http://127.0.0.1:8000/order/");
+
+export default function PlaceOrder() 
+{
+  const url = "http://127.0.0.1:8000/order/";
+const { isLoading, error, data } = useFetch(url, 
+  {
+    method: 'GET',
+    headers: {
+      'Authorization': 'token 8bb6c14df69a733dfc1d8dbb26341c1f9cdf84fa',
+      'Content-Type': 'application/json'
+    }
+  });
 if (isLoading) return "Loading...";
 if (error) return "Error!";
 const alpha = data.results.map((item) => ({
-    user: item.user,
-    name: item.product_name,
-    quantity: item.total_product
+  user: item.user,
+  product_name: item.product_name,
+  total_product: item.total_product,
+  image: item.image
 }));
 
-return (
-<>
-<h1 id="mens-main">Mens Collection</h1>
+  return(
+    <>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h1 id="mens-main">Mens Collection</h1>
+    <div class="grid-container">
 {alpha.map((item, index) => (
-        <div key={index} id='mens-section'>
-          <h2 id="mens-heading">{item.user}</h2>
-            <p> {item.name}</p>
-          <p id="mens-discription">{item.quantity}</p>
-        </div>
-      ))}
-</>
-);
+  <button key={index}>
+    <div class="product">
+      <h3>{item.user}</h3>
+      <img src={item.image} alt="Product 1"/>
+      <p>{item.product_name}</p>
+      <p>{item.total_product}</p>
+    </div>
+    </button>
+))}
+</div>
+    </>
+  )
 }
-*/

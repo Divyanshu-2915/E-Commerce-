@@ -1,13 +1,12 @@
 
 import React from 'react';
 import './sample.css';
-import {useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar';
 
-function NewUser()
-{
+function NewUser() {
     const [isContainerActive, setContainerActive] = useState(false);
     const [newdata, setNewData] = useState(null);
     const [newusername, setNewUserName] = useState('');
@@ -19,6 +18,7 @@ function NewUser()
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [token, setToken] = useState()
     //---
     const addUser = async (e) => {
         e.preventDefault();
@@ -28,21 +28,21 @@ function NewUser()
             return;
         }
 
-        if(newpassword !== confirmpassword){
+        if (newpassword !== confirmpassword) {
             alert("Password are not same !!");
             return;
         }
-            const response = await axios({
-                method: 'POST',
-                baseURL: 'http://127.0.0.1:8000/register/',
-                data: {
+        const response = await axios({
+            method: 'POST',
+            baseURL: 'http://127.0.0.1:8000/register/',
+            data: {
                 "username": newusername,
                 "email": newemail,
                 "password1": newpassword,
                 "password2": confirmpassword
-                },
-            });
-            setNewData(response.newdata);
+            },
+        });
+        setNewData(response.newdata);
     };
     //---
     const userLogin = async (e) => {
@@ -52,63 +52,65 @@ function NewUser()
             alert("Please fill in all fields !");
             return;
         }
-            const response = await axios({
-                method: 'POST',
-                baseURL: 'http://127.0.0.1:8000/login/',
-                data: {
+        const response = await axios({
+            method: 'POST',
+            baseURL: 'http://127.0.0.1:8000/login/',
+            data: {
                 "username": username,
                 "email": email,
                 "password": password,
-                },
-            });
-            setData(response.data);
+            },
+        });
+
+        if (!token) {
+            { return <Navbar setToken={setToken} /> }
+        }
+        setData(response.data);
     };
 
     //---
-    const handleRegisterClick = () => 
-    {
+    const handleRegisterClick = () => {
         setContainerActive(true);
         var allInputs = document.querySelectorAll('input');
-            allInputs.forEach(singleInput => singleInput.value = '');
+        allInputs.forEach(singleInput => singleInput.value = '');
     };
 
-    const handleLoginClick = () => 
-    {
+    const handleLoginClick = () => {
         setContainerActive(false);
         var allInputs = document.querySelectorAll('input');
         allInputs.forEach(singleInput => singleInput.value = '');
     };
 
-    return(
-            <>
+    return (
+        <>
             <div className={`container ${isContainerActive ? 'active' : ''}`} id="container">
                 <div class="form-container sign-up">
-                <form onSubmit={addUser} id="signup-form">
-                    <h1> Sign Up </h1>
-                    <label htmlFor='Username'> Enter User Name</label>
-                    <input type="text" placeholder="Enter Username" value={newusername} onChange={(e) => setNewUserName(e.target.value)} />
-                    <label htmlFor='Email'> Enter E-Mail</label>
-                    <input type="email" placeholder="Enter Mail" value={newemail} onChange={(e) => setNewEmail(e.target.value)} />
-                    <label htmlFor='Password'> Enter Password</label>
-                    <input type="password" placeholder="Enter Password" value={newpassword} onChange={(e) => setNewPassword(e.target.value)} />
-                    <label htmlFor='ConfirmPassword'> Confirm Password </label>
-                    <input type="password" placeholder="Confirm Password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                    <button type="submit"><Link to='/Navbar' style={{textDecoration: 'none', color:'#7f5539'}}> Register </Link></button>
-                    {newdata && <p style={{ color: 'green' }}>User registered successfully!</p>}
-                </form>
+                    <form onSubmit={addUser} id="signup-form">
+                        <h1> Sign Up </h1>
+                        <label htmlFor='Username'> Enter User Name</label>
+                        <input type="text" placeholder="Enter Username" value={newusername} onChange={(e) => setNewUserName(e.target.value)} />
+                        <label htmlFor='Email'> Enter E-Mail</label>
+                        <input type="email" placeholder="Enter Mail" value={newemail} onChange={(e) => setNewEmail(e.target.value)} />
+                        <label htmlFor='Password'> Enter Password</label>
+                        <input type="password" placeholder="Enter Password" value={newpassword} onChange={(e) => setNewPassword(e.target.value)} />
+                        <label htmlFor='ConfirmPassword'> Confirm Password </label>
+                        <input type="password" placeholder="Confirm Password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                        <button type="submit">Register</button>
+                        {newdata && <p style={{ color: 'green' }}>User registered successfully!</p>}
+                    </form>
                 </div>
                 <div class="form-container sign-in">
-                <form onSubmit={userLogin} id="signin-form">
-                    <h1> Sign In </h1>
-                    <label htmlFor='Username'> Enter User Name</label>
-                    <input type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)} />
-                    <label htmlFor='Email'> Enter E-Mail</label>
-                    <input type="email" placeholder="Enter Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <label htmlFor='Password'> Enter Password</label>
-                    <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <button type="submit"><Link to='/navbar' style={{textDecoration: 'none', color:'#7f5539'}}> Login </Link></button>
-                    {data && <p style={{ color: 'green' }}>Login Successfully !</p>}
-                </form>
+                    <form onSubmit={userLogin} id="signin-form">
+                        <h1> Sign In </h1>
+                        <label htmlFor='Username'> Enter User Name</label>
+                        <input type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)} />
+                        <label htmlFor='Email'> Enter E-Mail</label>
+                        <input type="email" placeholder="Enter Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <label htmlFor='Password'> Enter Password</label>
+                        <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <button type="submit">Login</button>
+                        {data && <p style={{ color: 'green' }}>Login Successfully !</p>}
+                    </form>
                 </div>
                 <div class="toggle-container">
                     <div class="toggle">
@@ -125,9 +127,9 @@ function NewUser()
                     </div>
                 </div>
             </div>
-            </>
-        
-);
+        </>
+
+    );
 }
 
 export default NewUser;

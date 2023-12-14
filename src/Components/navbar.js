@@ -18,15 +18,17 @@ function Navbar()
         <button type="search" id="navbar-btn">Search</button>
         </form>
         <div id="navbar-inherit-box">
+          <Link to='/Cart' style={{textDecoration: 'none', color: 'black'}}>
         <FontAwesomeIcon icon={faCartShopping} id="navbar-cart"/>
+        </Link>
         <button id="navbar-signin">
        <Link to='/sample' style={{textDecoration: 'none', color:'#7f5539'}}>SignUp/Login</Link>
        </button>
         </div>
       </div>
         <ul id="navbar-list-one">
-          <li> <Link to='/Products' style={{textDecoration: 'none', color:'#7f5539'}}>All Products </Link></li>
-          <li> Mens </li>
+          <li><Link to='/Categories' style={{textDecoration: 'none', color:'#7f5539'}}>All Products </Link></li>
+          <li><Link to='/Products' style={{textDecoration: 'none', color:'#7f5539'}}> Mens </Link></li>
           <li> Womens </li>
           <li> Acessories </li>
           <li> Shoes </li>

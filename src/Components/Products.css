@@ -1,64 +1,17 @@
-/* Products.css 
-
-#mens-main {
-  text-align: center;
-  margin-bottom: 20px;
+.grid-container {
   display: grid;
-  grid-template-areas:  "a a ."
-  "a a ."
-  ". b c";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-#mens-section {
-  border: 1px solid #ccc;
+.product {
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
 }
 
-#mens-heading {
-  margin-top: 0;
-}
-
-#mens-images {
+.product img {
+  max-width: 100%;
   height: auto;
-}
-
-#mens-discription {
-  color: #555;
-}
-*/
-
-#grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 5px; 
-  max-width: 1500px; 
-  margin: 20px auto; 
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#grid-item {
-  background-color: #3498db;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  width: 250px;
-  height: 250px;
-  position: inherit;
-}
-
-#mens-heading{
-  font-size: 25px;
-  text-align: center;
-  position: relative;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-#mens-images{
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  border-radius: 10px;
+  margin-bottom: 10px;
 }
