@@ -4,7 +4,8 @@ import './navbar.css';
 import { faCartShopping, fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import axios from "axios";
+import useFetch from "react-fetch-hook";
+import axios, { Axios } from "axios";
 
 function Navbar() {
   library.add(fas)
@@ -22,9 +23,17 @@ function Navbar() {
     const b = data.results.map((item) => ({
       name: item.name,
     }));
-    console.log(b);
     const a = document.getElementById('navbar-search').value;
     console.log(a);
+    return (
+      <>
+        {b.map((item, index) => (
+          <button key={index}>
+            <h3 id='item-name'>{item.name}</h3>
+          </button>
+        ))}
+      </>
+    )
   }
 
   return (
