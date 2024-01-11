@@ -95,7 +95,7 @@ function NewUser() {
                         <input type="password" placeholder="Enter Password" value={newpassword} onChange={(e) => setNewPassword(e.target.value)} />
                         <label htmlFor='ConfirmPassword'> Confirm Password </label>
                         <input type="password" placeholder="Confirm Password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                        <button type="submit">Register</button>
+                        <button type="submit"><Link to='/navbar' style={{ textDecoration: 'none' }}>Register</Link></button>
                         {newdata && <p style={{ color: 'green' }}>User registered successfully!</p>}
                     </form>
                 </div>

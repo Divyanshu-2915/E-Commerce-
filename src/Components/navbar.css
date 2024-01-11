@@ -1,208 +1,46 @@
-#navbar-main
-{
-    border: 1px solid #ede0d4;
-    margin: 2px 2px 0px 2px;
-    background-color: white;
-}
-#main-box-one
-{
-    float: right;
-    margin: 10px 10px 0px 5px;
-    align-items: center;
-}
-
-#nav-logo
-{
-    width: 200px;
-    height: 50px;
-    margin: 10px 5px 0px 10px;
-    border: 1px solid #ede0d4;
-    border-radius: 2px;
-}
-
-#navbar-list-one
-{
-    list-style: none;
-    margin: 10px 5px 0px 10px;
-    margin-left: 100px;
-}
-
-#navbar-list-one li
-{
-    border: 2px solid #7f5539;
-    margin-top: 25px;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-    width: 10%;
-    display: inline-block;
-    text-align: center;
-    background-color: #ede0d4;
-    color: #7f5539;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-#navbar-list-one li:hover
-{
-    border: 1px solid #b08968;
-    font-size: larger;
-    transition: ease-in-out 0.2s;
-    text-decoration: underline;
-    color: #b08968;
-}
-
-#navbar-search
-{
-    width: 500px;
-    height: 30px;
-    margin-top: 5px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-#navbar-search:hover
-{
-    width: 600px;
-    height: 40px;
-    border: 2px solid #7f5539;
-    transition: ease-in-out 0.2s;
-}
-
-#navbar-form
-{
-    padding: 2px 2px 0px 2px;
-    margin-right: 300px;
-
-}
-
-#navbar-btn
-{
-    height: 30px;
-    width: 150px;;
-    margin-top: 5px;
-    background-color: #ede0d4;
-    color: #7f5539;
-    border-radius: 10px;
-    border: 2px solid #7f5539;
-    margin-left: 5px;
-}
-
-#navbar-btn:hover
-{
-    border: 1px solid #b08968;
-    font-size: large;
-    text-decoration: underline;
-    color: #b08968;
-    height: 40px;
-    width: 200px;
-    transition: ease-in-out 0.2s;
-}
-
-#navbar-inherit-box
-{
-    float: right;
-    align-items: center;
-    margin-right: 50px;
-    padding: 5px;
-    padding-inline: 10px;
-    margin-inline: 10px;
-    margin-top: -40px;
-    margin-right: 40px;
-}
-
-#navbar-cart
-{
-    border: 1px solid transparent;
-    width: 25px;
-    height: 25px;
-    margin-right: 50px;
-}
-
-#navbar-cart:hover
-{
-    transition: ease-in-out 0.2s;
-    width: 30px;
-    height: 30px;
-    border-bottom: 2px solid #7f5539;
-}
-
-#navbar-profile
-{
-    border: 1px solid black;
-    outline-style: none;
+.navbar-brand {
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
-    height: 30px;
-    background-color: transparent;
-    border: 1px solid #7f5539;
-    border-radius: 10px;
-    color: #7f5539;
+    margin-left: 10%;
 }
 
-#navbar-profile:hover
-{
-    transition: ease-in-out 0.2s;
-    border-bottom: 5px solid #7f5539;
-    height: 35px;
-    width: auto;
-    color: #7f5539;
-    font-size: larger;
+.d-flex {
+    margin-right: 10%;
 }
 
-#navbar-signin{
-    border: 2px solid #7f5539;
-    margin: 5px 5px 0px 10px;
-    font-size: large;
-    padding: 5px 5px 5px 5px;
-    width: fit-content;
-    text-align: center;
-    background-color: #ede0d4;
-    color: #7f5539;
-    border-radius: 5px;
-
+.carousel-item{
+    background: black;
+    overflow: hidden;
+    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
+    background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
 
-#navbar-signin:hover{
-    border: 1px solid #b08968;
-    font-size: large;
-    transition: ease-in-out 0.2s;
-    text-decoration: underline;
-    color: #b08968;
+.carousel-inner {
+    height: 500px;
+    margin-bottom: 25px;
 }
 
-.banner
-{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),url(../IMAGES/head1.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
-
-#banner-box{
-    color: white;
-    width: fit-content;
-    height: fit-content;
-    padding: 150px;
-    margin-inline: 0px;
-}
-
-.product-bar{
+.carousel-caption {
+    margin-bottom: 32%;
+    color: black;
     border: 1px solid black;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    opacity: 0.6;
 }
 
-#main-product-box{
-    display: inline-block;
+.slider-heading{
+    font-weight: bold;
+    color: black;
 }
 
-#products-list li{
-    border: 2px solid #7f5539;
-    border-radius: 50%;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-    display: inline-block;
+.slider-para{
+    font-weight: bold;
+  color: #000000;
+}
+
+.category-head{
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }

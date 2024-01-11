@@ -2,9 +2,12 @@
 import './Categories.css';
 import React from "react";
 import useFetch from "react-fetch-hook";
-import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 
 export default function AllItem() {
+
+  const navigate = useNavigate();
+
   const url = "http://127.0.0.1:8000/category/";
   const { isLoading, error, data } = useFetch(url,
     {
@@ -22,22 +25,35 @@ export default function AllItem() {
     image: item.image,
   }));
 
+  const checkItem = (ClickedItem) => {
+    const clickedProduct = alpha.find((item, index) => item === ClickedItem);
+    console.log(clickedProduct)
+    if (clickedProduct.name === `Men's Accessories`) {
+      navigate('/Accessories');
+    }
+     else if (clickedProduct.name === `Men's Shirts`) {
+      navigate('/Fashion');
+    } else if (clickedProduct.name === `Men's Shoes`) {
+      navigate('/FootWear');
+    }
+
+  }
+
   return (
     <>
-      <h1 id="mens-main">All Products </h1>
       {alpha.map((item, index) => (
-        <Link to='/Products' style={{ textDecoration: 'none', color: 'black' }}>
-          <div key={index} id='mens-section'>
-            <img id="mens-images" src={item.image} alt={item.name} />
-            <h2 id="mens-heading">{item.name}</h2>
-            <p id="mens-discription">{item.description}</p>
+        <div class="main-card" key={index}>
+          <img src={item.image} class="card-img-top" alt={item.name} />
+          <div class="main-card-body">
+            <h5 class="main-card-title">{item.name}</h5>
+            <p class="main-card-text">{item.description}</p>
+            <button class="btn btn-outline-primary" type="button" onClick={() => checkItem(item)}>Shop Now</button>
           </div>
-        </Link>
+        </div>
       ))}
+
     </>
   );
 }
 
 //---
-
-

@@ -1,29 +1,23 @@
-img {
-    width: 100px;
-    height: 150px;
-    border: 1px solid black;
-    border-radius: 25px;
-    margin-top: 25px;
-}
-
-#mens-section {
-    border: 1px solid black;
+.main-card {
     display: inline-block;
-    width: 500px;
-    height: 200px;
-    padding: 15px;
-    margin: 15px;
-    border-radius: 15px;
-    text-align: left;
+    margin-left: 30px;
 }
 
-#mens-heading {
-    margin-top: -125px;
-    margin-left: 15px;
-    text-align: center;
+.main-card-body {
+    background-origin: padding-box;
+    border: 1px solid black;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    padding: 10px 10px 10px 10px;
 }
 
-#mens-discription {
-    margin-left: 35px;
-    text-align: center;
+.main-card-title {
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.main-card-text {
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
 }
