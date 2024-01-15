@@ -1,13 +1,16 @@
 
 import './Fashion.css';
-import React from "react";
+import React, { useRef, useState } from "react";
 import useFetch from "react-fetch-hook";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { event } from 'jquery';
+
 
 function Mens() {
 
   const navigate = useNavigate();
+  const [ShirtQuantity, setShirtQuantity] = useState();
 
   const url = "http://127.0.0.1:8000/product/";
   const { isLoading, error, data } = useFetch(url,
@@ -31,6 +34,7 @@ function Mens() {
 
   const addToCart = (clickedItem) => {
     const clickedProduct = alpha.find((item, index) => item === clickedItem);
+
     if (clickedProduct) {
       const addItem = axios({
         method: 'POST',
@@ -42,14 +46,13 @@ function Mens() {
         data: {
           "user": 2,
           "product": clickedProduct.id,
-          "product_qty" : 2,
+          "product_qty": ShirtQuantity
           //"image": clickedProduct.image
         },
       });
       navigate('/Cart')
     }
   }
-
   return (
     <>
       <meta charset="UTF-8" />
@@ -59,14 +62,15 @@ function Mens() {
       <div>
         {alpha.slice(0, 6).map((item, index) => (
           <div class="card mb-3" key={index}>
-            <img src={item.image} class="card-img-top" alt={item.name} />
+            <div className='card-id'>{item.id}</div>
             <div class="card-body">
-            <h5 class='card-title'>Product Id - {item.id}</h5>
               <h5 class="card-title">{item.name}</h5>
               <p class="card-text">{item.description}</p>
               <p class="card-text">{item.price}</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-outline-primary me-md-2" type="button">View</button>
+                <label style={{ fontSize: '25px' }}>Quantity - </label>
+                <input type='number' min='1' max='10' id='s-quantity' value={ShirtQuantity} onBlur={event => setShirtQuantity(event.target.value)}/>
                 <button class="btn btn-outline-primary" type="button" onClick={() => addToCart(item)}>Add to Cart</button>
               </div>
             </div>
@@ -81,21 +85,4 @@ export default Mens;
 
 
 /*
-const addItem = axios({
-                method: 'POST',
-                baseURL: 'http://127.0.0.1:8000/register/',
-                data: {
-                    "user": 2,
-                    "product": clickedProduct.name,
-                    "product_qty": 2,
-                    "image": clickedProduct.image
-                },
-            });
-
-            // Check for successful registration (status code 200)
-            if (response.status === 200) {
-                // Clear any previous errors on successful registration
-                setSigninError({});
-            }
-        
  */

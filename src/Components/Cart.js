@@ -1,6 +1,8 @@
 import React from "react";
 import useFetch from "react-fetch-hook";
+import axios from "axios";
 import './Cart.css';
+import { click } from "@testing-library/user-event/dist/click";
 
 function Cart() {
   const baseURL = 'http://127.0.0.1:8000/cart/';
@@ -13,25 +15,46 @@ function Cart() {
       }
     });
 
-  const cartItem = (data && data.results) ?  data.results.map((item) => ({
+  const cartItem = (data && data.results) ? data.results.map((item) => ({
     product: item.product,
     user: item.user,
     product_qty: item.product_qty,
-    image: item.image
+    image: item.image,
+    id: item.id
   })) : [];
 
-  console.log(data);
+  const removeItem = async (clickedItem) => {
+    console.log(clickedItem);
+    debugger;
+    const deleteItem = await axios(`http://127.0.0.1:8000/cart/${clickedItem}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'token 8bb6c14df69a733dfc1d8dbb26341c1f9cdf84fa',
+        'Content-Type': 'application/json'
+      }
+    }
+    );
+    if (deleteItem.status === 204) {
+      window.location.reload(true);
+    }
+  }
+
+  const changeQuantity = (itemId) =>{
+    console.log(itemId);
+    
+  }
 
   return (
     <>
       <h1>HELLO !</h1>
       <h2>Welcome To Cart</h2>
       {cartItem.map((item, index) => (
-        <div key={index}>
-          <img src={item.image} />
-          <h4>Product Id - {item.product}</h4>
-          <p>Product Quantity - {item.product_qty}</p>
-          <p>User - {item.user}</p>
+        <div key={index} className="cart-box">
+          <h3 className="cart-head">Product Id - {item.product}</h3>
+          <h4 className="cart-head">Product Quantity - {item.product_qty}</h4>
+          <input type="number" value={item.product_qty} onFocus={changeQuantity(item.id)}/>
+          <h4 className="cart-head"> Cart id - {item.id}</h4>
+          <button class='btn btn-outline-primary' onClick={() => removeItem(item.id)}> Remove Item </button>
         </div>
       ))}
     </>
@@ -39,30 +62,3 @@ function Cart() {
 }
 
 export default Cart;
-
-/*
-
-function Cart()
-{
-  const url = "http://127.0.0.1:8000/product/";
-  const { isLoading, error, data } = useFetch(url,
-    {
-      method: 'GET',
-      headers: {
-        'Authorization': 'token 8bb6c14df69a733dfc1d8dbb26341c1f9cdf84fa',
-        'Content-Type': 'application/json'
-      }
-    });
-    const alpha = data.results.map((item) => ({
-    name: item.name,
-    description: item.description,
-    price: item.price,
-    image: item.image,
-    id: item.id,
-    category: item.category
-  }));
-
-      if(item.id === item.product)
-}
-
- */

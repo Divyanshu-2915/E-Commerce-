@@ -55,6 +55,11 @@ function Navbar() {
             <a class="nav-link" href="#">Contact</a>
           </Link>
         </li>
+        <li class="nav-item">
+          <Link to='/Cart'>
+            <a class="nav-link" href="#">Cart</a>
+          </Link>
+        </li>
       </ul>
       <br />
       {/* */}

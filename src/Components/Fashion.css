@@ -5,6 +5,22 @@
     overflow: hidden;
 }
 
+.card-id{
+     border: 1px solid black;
+     border-radius: 10px;
+     margin: 5px;
+    overflow: hidden;
+    text-align: center;
+    height: 150px;
+    color: white;
+    background-color: #a0d9ef;
+    font-size: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 1000;
+    text-shadow: 5px 5px 5px black;
+
+}
+
 .card {
     max-width: 500px;
     max-height: 450px;

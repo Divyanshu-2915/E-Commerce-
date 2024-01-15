@@ -1,3 +1,20 @@
 h2{
     text-align: center;
 }
+
+.cart-box{
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 15px;
+    width: 300px;
+    height: 275px;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+}
+
+.cart-head{
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    margin-top: 5px;
+}

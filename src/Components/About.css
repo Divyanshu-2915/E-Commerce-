@@ -1,0 +1,15 @@
+.about-head{
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 5px 5px 5px black;
+    text-align: center;
+}
+
+.about-sec{
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+}
+

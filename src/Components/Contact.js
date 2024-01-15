@@ -24,23 +24,23 @@ function Contact() {
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Contact Us - Anime Attire</title>
-            <h1>Anime Attire</h1>
-            <h4>The Perfect Store for Your dreams</h4>
+            <h1 className="contact-head">Anime Attire</h1>
+            <h4 className="contact-head">The Perfect Store for Your dreams</h4>
 
-            <section>
+            <section className="contact-sec">
                 <h2>Contact Us</h2>
                 <p>If you have any questions or concerns, please feel free to contact us using the form below.</p>
 
-                <form action="#" method="post" onSubmit={storeResponse}>
+                <form action="#" method="post" onSubmit={storeResponse} className="contact-form">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required />
-
+                    <br/><br/><br/>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required />
-
+                    <br/><br/><br/>
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="4" required />
-
+                    <br/><br/><br/>
                     <button type="submit">Submit</button>
                 </form>
             </section>
