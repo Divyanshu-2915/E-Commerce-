@@ -39,11 +39,6 @@ function Cart() {
     }
   }
 
-  const changeQuantity = (itemId) =>{
-    console.log(itemId);
-    
-  }
-
   return (
     <>
       <h1>HELLO !</h1>
@@ -52,7 +47,6 @@ function Cart() {
         <div key={index} className="cart-box">
           <h3 className="cart-head">Product Id - {item.product}</h3>
           <h4 className="cart-head">Product Quantity - {item.product_qty}</h4>
-          <input type="number" value={item.product_qty} onFocus={changeQuantity(item.id)}/>
           <h4 className="cart-head"> Cart id - {item.id}</h4>
           <button class='btn btn-outline-primary' onClick={() => removeItem(item.id)}> Remove Item </button>
         </div>
